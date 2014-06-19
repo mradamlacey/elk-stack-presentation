@@ -1,0 +1,50 @@
+{
+	"id": "d11f038a-d799-20f5-abf2-4de26093726a",
+	"name": "ELK - NFL 2013",
+	"description": "",
+	"order": [
+		"db17849d-0793-c8ad-06a9-9cfda8b8217d",
+		"c39b46d8-f662-9ce2-6454-7b926c4bf7df"
+	],
+	"folders": [],
+	"timestamp": 1402504063701,
+	"synced": false,
+	"requests": [
+		{
+			"id": "c39b46d8-f662-9ce2-6454-7b926c4bf7df",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:9200/nfl-2013/_search",
+			"pathVariables": {},
+			"method": "POST",
+			"data": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": {\n        \"match\": {\n          \"description\": \"TOUCHDOWN\"\n        }\n      },\n      \"must_not\": {\n        \"match\": {\n          \"qtr\": 5\n        }\n      }\n    }\n  },\n\n  \"aggregations\": {\n        \"teams\": {\n            \"terms\": {\"field\": \"off\"},\n            \"aggregations\": {\n                \"significantDescriptions\": {\n                    \"significant_terms\": {\"field\": \"description\"}\n                }\n            }\n        }\n    }\n}",
+			"dataMode": "raw",
+			"name": "Get significant descriptions by teams",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1402504541313,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "d11f038a-d799-20f5-abf2-4de26093726a",
+			"synced": false
+		},
+		{
+			"id": "db17849d-0793-c8ad-06a9-9cfda8b8217d",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:9200/nfl-2013/_search",
+			"pathVariables": {},
+			"method": "POST",
+			"data": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": {\n        \"match\": {\n          \"description\": \"TOUCHDOWN\"\n        }\n      },\n      \"must_not\": {\n        \"match\": {\n          \"qtr\": 5\n        }\n      }\n    }\n  },\n  \"aggs\": {\n    \"touchdowns\": {\n      \"terms\": {\n        \"field\": \"qtr\",\n        \"order\": {\n          \"_term\": \"asc\"\n        }\n      }\n    }\n  }\n}",
+			"dataMode": "raw",
+			"name": "Get touchdowns by quarter",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1402504063701,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"collectionId": "d11f038a-d799-20f5-abf2-4de26093726a",
+			"synced": false
+		}
+	]
+}

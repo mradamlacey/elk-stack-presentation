@@ -1,0 +1,31 @@
+{
+	"id": "68c17f49-96de-df9b-e0cb-b843a5102e70",
+	"name": "ElasticSearch",
+	"description": "",
+	"order": [
+		"d67609a8-7c74-56a5-ba38-2f60c74ca501"
+	],
+	"folders": [],
+	"timestamp": 1402330231544,
+	"synced": false,
+	"requests": [
+		{
+			"id": "d67609a8-7c74-56a5-ba38-2f60c74ca501",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:9200",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "GET - node",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1402330231544,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Has href property\"] = responseBody.has(\"href\");\ntests[\"Has items property\"] = responseBody.has(\"items\");\n",
+			"collectionId": "68c17f49-96de-df9b-e0cb-b843a5102e70",
+			"synced": false
+		}
+	]
+}

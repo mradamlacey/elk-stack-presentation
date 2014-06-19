@@ -1,0 +1,18 @@
+{
+  "name": "nfl-viz",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "jade": "~1.3.0",
+    "morgan": "~1.0.0",
+    "static-favicon": "~1.0.0",
+    "vz-passport-saml": "http://localhost:8080/package/vz-passport-saml/0.0.2"
+  }
+}
